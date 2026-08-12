@@ -11,22 +11,23 @@ app:
       cpu: 200m
       memory: 256Mi
     autoscaling: {}
-    min: 1
+    min: 3
     max: 10
-  version: v3
+  version: v1
   rollout:
     strategy:
-      canary:
-        steps:
-        - setWeight: 20
-        - pause: { duration: 10 }
-        - setWeight: 40
-        - pause: { duration: 10 }
-        - setWeight: 60
-        - pause: { duration: 10 }
-        - setWeight: 80
-        - pause: { duration: 10 }
-        - setWeight: 100
+      blueGreen: nginx-blue-green
+      # canary:
+      #   steps:
+      #   - setWeight: 20
+      #   - pause: { duration: 10 }
+      #   - setWeight: 40
+      #   - pause: { duration: 10 }
+      #   - setWeight: 60
+      #   - pause: { duration: 10 }
+      #   - setWeight: 80
+      #   - pause: { duration: 10 }
+      #   - setWeight: 100
 
     analysisTemplates:
     - name: 'istio-success'
