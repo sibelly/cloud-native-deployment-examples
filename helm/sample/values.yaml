@@ -16,7 +16,7 @@ app:
   version: v1
   rollout:
     strategy:
-      blueGreen: nginx-blue-green
+      blueGreen: "true"
       # canary:
       #   steps:
       #   - setWeight: 20
