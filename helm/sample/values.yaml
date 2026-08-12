@@ -16,7 +16,8 @@ app:
   version: v1
   rollout:
     strategy:
-      blueGreen: "true"
+      blueGreen:
+        activeService: nginx
       # canary:
       #   steps:
       #   - setWeight: 20
