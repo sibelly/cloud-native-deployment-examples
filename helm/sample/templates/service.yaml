@@ -1,7 +1,8 @@
+{{- if .Values.app.rollout.strategy.canary }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.app.name }}
+  name: {{ .Values.app.name }}-canary
   namespace: {{ .Values.app.namespace }}
   labels:
   annotations:
@@ -16,6 +17,7 @@ spec:
     port: {{  .Values.app.port.port }}
     protocol: {{ .Values.app.port.protocol }}
     targetPort: {{ int .Values.app.port.targetPort }}
+{{- end }}
 ---
 {{- if .Values.app.rollout.strategy.blueGreen }}
 apiVersion: v1

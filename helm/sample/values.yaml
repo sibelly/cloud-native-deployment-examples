@@ -11,7 +11,7 @@ app:
       cpu: 200m
       memory: 256Mi
     autoscaling: {}
-    min: 1
+    min: 5
     max: 10
   version: v1
   rollout:
